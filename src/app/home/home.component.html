@@ -1,0 +1,37 @@
+
+<div class="w-50 mx-5" ng-app="myApp" ng-controller="myCtrl">
+    <div class="mb-3">
+        <label for="inputRowNum" class="form-label">Row Number</label>
+        <input ng-model="row" type="number" class="form-control" id="inputRowNum" aria-describedby="rowHelp">
+        <button (click)="changeValue(rowNumberSent)">Search</button>
+        <p>{{row}}</p> 
+        <!-- [(ngModel)]="table[i][j]" -->
+        <div id="rowHelp" class="form-text">Write the row number needed for modification</div>
+    </div>
+    <div class="mb-3">
+        <label for="inputUserName" class="form-label">Name</label>
+        <input type="number" class="form-control" id="inputUserName" aria-describedby="nameHelp">
+        <!-- <button (click)="inputUserName(newName)"></button> -->
+        <div id="nameHelp" class="form-text">Write the Name to be modified</div>
+    </div>
+</div>
+
+<table class="table table-striped w-75 m-5">
+    <thead>
+        <tr>
+            <th scope="col">Num</th>
+            <th scope="col">Name</th>
+            <th scope="col">Age</th>
+            <th scope="col">Email</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let item of data;let i = index">
+            <th scope="row">{{i+1}}</th>
+            <td>{{item.name}}</td>
+            <td>{{item.age}}</td>
+            <td>{{item.email}}</td>
+        </tr>
+    </tbody>
+</table>
